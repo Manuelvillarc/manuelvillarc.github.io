@@ -1,16 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
     <title>¡Bienvenido a Ayudapp!</title>
-
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-auth.js"></script>
 
     <!-- Font Icon -->
     <link
@@ -51,7 +46,9 @@
             <div class="signup-form">
               <h1 class="form-title">Ayudapp</h1>
               <p class="h5 mb-3">Crea una nueva cuenta</p>
+
               <form method="POST" class="register-form" id="register-form">
+
                 <div class="form-group">
                   <label for="email"><i class="zmdi zmdi-email"></i></label>
 
@@ -59,8 +56,9 @@
                     type="email"
                     name="txtEmail"
                     id="txtEmail"
-                    placeholder="Correo electónico"
+                    placeholder="Email"
                   />
+
                 </div>
                 <div class="form-group">
                   <label for="pass"><i class="zmdi zmdi-lock"></i></label>
@@ -86,7 +84,7 @@
                 </div>
                 <div class="form-group form-button">
                   <input
-                    type="submit"
+                    type="button"
                     name="btnSignUp"
                     id="btnSignUp"
                     class="form-submit"
@@ -115,48 +113,13 @@
       </section>
     </div>
 
-    <script>
-      // Your web app's Firebase configuration
-      var firebaseConfig = {
-        apiKey: "AIzaSyC_NWzoivOLE3ozskYmQiyXAOHh1gNzG48",
-        authDomain: "ayudapp-4183f.firebaseapp.com",
-        databaseURL: "https://ayudapp-4183f.firebaseio.com",
-        projectId: "ayudapp-4183f",
-        storageBucket: "ayudapp-4183f.appspot.com",
-        messagingSenderId: "883314648360",
-        appId: "1:883314648360:web:22ba6a1caff53c66b59c1d",
-      };
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-auth.js"></script>
 
-      // Get elements
-      const txtEmail = document.getElementById("txtEmail");
-      const txtPassword = document.getElementById("txtPassword");
-      const txtPassword2 = document.getElementById("txtPassword2");
-      const btnSignUp = document.getElementById("btnSignUp");
+    <!-- JS -->
+    <script src="js/app.js"></script>
 
-      // Add signup event
-      btnSignUp.addEventListener("click", (e) => {
-        // Get email and pass
-        // TODO: CHECK FOR REAL E-MAILS
-        const email = txtEmail.value;
-        const pass = txtPassword.value;
-        const pass2 = txtPassword2.value;
-        const auth = firebase.auth();
-        // Sign in
-        const promise = auth.createUserWithEmailAndPassword(email, pass);
-
-        promise.catch((e) => console.log(e.message));
-      });
-
-      // Add a realtime listener
-      firebase.auth().onAuthStateChanged((firebaseUser) => {
-        if (firebaseUser) {
-          console.log(firebaseUser);
-        } else {
-          console.log("not logged in");
-        }
-      });
-    </script>
   </body>
 </html>
